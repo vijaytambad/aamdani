@@ -1,0 +1,15 @@
+extends ../layout 
+block content
+  h2 Apmc List
+  .tablediv
+    table
+      tr
+        th apmc id
+        th apmc name
+        th apmc add
+      each apmc in apmcs 
+        tr
+          td= apmc.apmcid
+          td 
+            a(href="api/firm/?apmcid="+ apmc.apmcid style="color:yellow;" )   #{apmc.apmcname}
+          td= apmc.apmcadd

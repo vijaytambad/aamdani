@@ -1,0 +1,21 @@
+extends ../layout 
+block content
+  h2 Firm List
+  //#{firms}
+  table(border="1")
+    tr
+      th Firm id
+      th Prefix
+      th Firm name
+      th Item Type
+      th Item Quality
+      th No. Of Bags
+    each firm in firms 
+      
+      tr 
+        td= firm.firmid
+        td= firm.prefix
+        td= firm.fname
+        td= firm.itemtype
+        td= firm.itemQuality
+        td= firm.NoofBags 

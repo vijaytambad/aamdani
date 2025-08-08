@@ -1,0 +1,18 @@
+extends ../layout 
+block content
+  h2 Users List
+  table(border="1")
+    tr
+      th UID
+      th Name
+      th Password
+      th Type ID
+      th Roll ID
+    each user in users 
+      tr
+        td= user.uid
+        td= user.uname
+        td= user.upass
+        td= user.utypeid
+        td= user.rollid
+        
