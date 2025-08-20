@@ -5,10 +5,10 @@ const env = require('dotenv').config();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
+const adminRouter = require('./routes/adminRoutes')
 //const { config } = require('process');
 const app = express();
-const myhost=process.env.host;
+//const myhost=process.env.host;
 // DB Connection
 require('./config/db');
 // Middleware
@@ -27,6 +27,11 @@ app.use(session({
 }));
 
 // Routes
+
+app.use('/api',adminRouter);
+
+
+
 //session.set()
 // Server
 app.listen(3000, () => {

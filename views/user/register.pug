@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  h2 Register User
+  form#registerForm(action="/save")
+    input.form-control(type="text", name="uid", placeholder="User ID")
+    input.form-control(type="text", name="uname", placeholder="Username")
+    input.form-control(type="password", name="upass", placeholder="Password")
+    input.form-control(type="text", name="utypeid", placeholder="User Type ID")
+    input.form-control(type="text", name="rollid", placeholder="Roll ID")
+    button.btn.btn-primary(type="submit") Register
+
+  

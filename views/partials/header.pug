@@ -1,0 +1,14 @@
+header.navbar
+  .nav-left
+    //button#sidebarToggle ☰
+    span App Name
+  .nav-right
+    if {loggedin}
+      div(id="login")
+        form#loginForm
+          input(type="text", name="uname", placeholder="Username")
+          input(type="password", name="upass", placeholder="Password")
+          button(type="button") Login
+    else
+        span Hello #{loggedin}
+        a(href="/logout") Logout
