@@ -12,9 +12,11 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ uname, upass });
 
     if (!user) {
-        res.render('index',{user})
+        res.render('login',{user})
     }
 
     req.session.user = user;
-    res.json({ success: true, loggedin:true,user });
+    res.render('dashboard',user);
+    //res.json({ success: true, loggedin:true,user });
+    //res.render('user/users')
 };

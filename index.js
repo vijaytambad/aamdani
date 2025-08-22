@@ -28,7 +28,7 @@ app.use(session({
 
 // Routes
 
-app.use('/api',adminRouter);
+app.use('/',adminRouter);
 
 
 
