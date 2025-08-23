@@ -7,6 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const adminRouter = require('./routes/adminRoutes')
+const apmcRouter = require('./routes/apmcRoutes')
 //const { config } = require('process');
 const app = express();
 //const myhost=process.env.host;
