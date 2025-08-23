@@ -5,6 +5,7 @@ const env = require('dotenv').config();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
 const adminRouter = require('./routes/adminRoutes')
 //const { config } = require('process');
 const app = express();
@@ -28,8 +29,8 @@ app.use(session({
 
 // Routes
 
-app.use('/',adminRouter);
-
+app.use('/admin',adminRouter);
+app.use('/',userRoutes);
 
 
 //session.set()

@@ -1,8 +1,10 @@
 extends layout
-
 block content
-  h1 Dashboard
-  if user
-    p Welcome, #{user.uname}!
-  else
-    p Please login to continue.
+
+  h1 Dashboard 
+    if(uname)
+      div(id="maindiv" style="back-color:yellow") 
+        h3 #{uname}
+        p Please login to continue.
+    else 
+      redirect('/login')
