@@ -1,8 +1,9 @@
 extends ../layout
 block content
   h2 Register APMC
-  form(action="/api/apmc/save", method="POST")
-    input.form-control(type="text", name="apmcid", placeholder="APMC ID")
-    input.form-control(type="text", name="apmcname", placeholder="APMC NAME")
-    input.form-control(type="text", name="apmcadd", placeholder="AAPMC ADD")
-    button.btn.btn-primary(type="submit") Register
+  div(class="d-flex justify-content-center align-items-center")
+    form(action="/api/apmc/save", method="POST")
+      input.form-control(type="text", name="apmcid", placeholder="APMC ID")
+      input.form-control(type="text", name="apmcname", placeholder="APMC NAME")
+      input.form-control(type="text", name="apmcadd", placeholder="AAPMC ADD")
+      button.btn.btn-primary(type="submit") Register

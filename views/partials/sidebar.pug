@@ -1,5 +1,21 @@
-aside#sidebar
-  div(class = "row")
-    ul
-      li: a(href="/") Dashboard
-      li: a(href="#") Users
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom
+  .container-fluid
+    // toggle button for small screens
+    button.btn.btn-outline-secondary(type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation")
+      | ☰ Menu
+    a.navbar-brand.ms-2(href="#") APMC Dashboard
+    // optional right side
+    button.btn.btn-outline-primary.ms-auto(type="button") Logout
+
+    .wrapper
+      // sidebar (collapse on small screens)
+      .collapse.d-lg-block.sidebar.bg-white.border-end#sidebarMenu
+        .list-group.list-group-flush
+          div(class="")
+            a.list-group-item.list-group-item-action(href="/apmc") APMC
+          div(class="")  
+            a.list-group-item.list-group-item-action(href="/firm/firms") FIRMS
+          div(class="")
+              a.list-group-item.list-group-item-action(href="/user") USERS
+        
+          

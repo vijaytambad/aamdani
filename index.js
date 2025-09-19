@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const adminRouter = require('./routes/adminRoutes')
 const apmcRouter = require('./routes/apmcRoutes')
+const firmRouter = require('./routes/firmRoutes')
 //const { config } = require('process');
 const app = express();
 //const myhost=process.env.host;
@@ -31,8 +32,9 @@ app.use(session({
 // Routes
 
 app.use('/admin',adminRouter);
+app.use('/',apmcRouter);
+app.use('/',firmRouter)
 app.use('/',userRoutes);
-
 
 //session.set()
 // Server

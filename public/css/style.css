@@ -11,6 +11,9 @@ body {
   justify-content: space-between;
 }
 
+.hidecol{
+  display: none;
+}
 .wrapper {
   display: flex;
 }

@@ -1,15 +1,29 @@
-extends ../layout 
+extends ../layout
+
 block content
-  h2 Apmc List
-  .tablediv
-    table
+  h2 APMC List
+  .container.mt-4
+  table.table.table-striped
+    thead
       tr
-        th apmc id
-        th apmc name
-        th apmc add
-      each apmc in apmcs 
+        th APMC Name
+        th APMC Address
+        th(colspan="3") Qty
+      tr
+        th(colspan="2")
+        th Onion
+        th Potato
+        th Garlic
+      tr
+    tbody
+      each apmc in apmcs
         tr
-          td= apmc.apmcid
           td 
-            a(href="api/firm/?apmcid="+ apmc.apmcid style="color:yellow;" )   #{apmc.apmcname}
+            a(href="/firms/rep/?apmcid="+apmc.apmcid) #{apmc.apmcname}
           td= apmc.apmcadd
+          td
+            a(href="/firms/?apmcid="+apmc.apmcid+"&prod=onion")  #{apmc.onion}
+          td
+            a(href="/firms/?apmcid="+apmc.apmcid+"&prod=potato") #{apmc.potato}
+          td
+           a(href="/firms/?apmcid="+apmc.apmcid+"&prod=gralic") #{apmc.garlic}

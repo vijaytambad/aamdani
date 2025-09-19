@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  .container.mt-4
+    h3 Firm Report
+    table.table.table-bordered.table-striped
+      thead.table-dark
+        tr
+          th Firm Name
+          th.text-end Onion
+          th.text-end Potato
+          th.text-end Garlic
+      tbody
+        each firm in firmreps
+          tr
+            // Hidden fields
+            td.d-none= firm.apmcid
+            td.d-none= firm.firmid
+            // Visible fields
+            td= firm.firmname
+            td.text-end= firm.onion
+            td.text-end= firm.potato
+            td.text-end= firm.garlic

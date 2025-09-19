@@ -1,0 +1,23 @@
+.modal.fade#firmModal(tabindex='-1' aria-hidden='true')
+.modal-dialog
+.modal-content
+.modal-header
+h5.modal-title#modalTitle Add Firm
+button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+form(method='POST' action='/firms/save')
+    .modal-body
+    input(type='hidden' name='mode' value='add')
+    label.form-label(for='firmid') FIRM ID
+    input(type='text' name='firmid')
+    .mb-3
+    label.form-label(for='apmcid') APMC ID
+    input.form-control(type='text' name='apmcid' required)
+    .mb-3
+    label.form-label(for='prefix') Prefix
+    input.form-control(type='text' name='prefix' required)
+    .mb-3
+    label.form-label(for='firmname') Firm Name
+    input.form-control(type='text' name='firmname' required)
+    .modal-footer
+    button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Cancel
+    button.btn.btn-primary(type='submit') Save

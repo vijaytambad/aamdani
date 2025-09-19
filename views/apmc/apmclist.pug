@@ -1,0 +1,68 @@
+extends ../layout
+
+block content
+  .container.mt-4
+    h2 APMC Management
+    button.btn.btn-primary.mb-3(data-bs-toggle="modal", data-bs-target="#addModal") Add APMC
+
+    table.table.table-striped
+      thead
+        tr
+          th(style="display:none") APMCID
+          th.text-end APMC Name
+          th.text-end APMC Address
+          th.text-center Action
+      tbody
+        each apmc in apmcs
+          tr
+            td(style="display:none")= apmc.apmcid
+            td.text-end= apmc.apmcname
+            td.text-end= apmc.apmcadd
+            td.text-center
+              button.btn.btn-sm.btn-warning(
+                data-bs-toggle="modal",
+                data-bs-target=`#editModal-${apmc._id}`
+              ) Edit
+              a.btn.btn-sm.btn-danger(href=`/apmcs/delete/${apmc._id}`) Delete
+
+          // Edit Modal
+          .modal.fade(id=`editModal-${apmc._id}`, tabindex="-1")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5.modal-title Edit APMC
+                  button.btn-close(type="button", data-bs-dismiss="modal")
+                form(action=`/apmc/update/${apmc._id}` method="POST")
+                  .modal-body
+                    input(type="hidden" name="apmcid" value=apmc.apmcid)
+                    .mb-3
+                      label.form-label APMC Name
+                      input.form-control(type="text", name="apmcname", value=apmc.apmcname, required)
+                    .mb-3
+                      label.form-label APMC Address
+                      input.form-control(type="text", name="apmcadd", value=apmc.apmcadd, required)
+                  .modal-footer
+                    button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                    button.btn.btn-primary(type="submit") Save
+
+    // Add Modal
+    .modal.fade#addModal(tabindex="-1")
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h5.modal-title Add APMC
+            button.btn-close(type="button", data-bs-dismiss="modal")
+          form(action="/apmc/save" method="POST")
+            .modal-body
+              .mb-3
+                label.form-label APMC ID
+                input.form-control.text-end(type="number", name="apmcid", required)
+              .mb-3
+                label.form-label APMC Name
+                input.form-control(type="text", name="apmcname", required)
+              .mb-3
+                label.form-label APMC Address
+                input.form-control(type="text", name="apmcadd", required)
+            .modal-footer
+              button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+              button.btn.btn-success(type="submit") Add

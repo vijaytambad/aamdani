@@ -1,13 +1,16 @@
 extends ../layout
 
 block content
-  h2 Register User
-  form#registerForm(action="/save")
-    input.form-control(type="text", name="uid", placeholder="User ID")
-    input.form-control(type="text", name="uname", placeholder="Username")
-    input.form-control(type="password", name="upass", placeholder="Password")
-    input.form-control(type="text", name="utypeid", placeholder="User Type ID")
-    input.form-control(type="text", name="rollid", placeholder="Roll ID")
-    button.btn.btn-primary(type="submit") Register
-
-  
+  h2 Add User
+  form(method="POST", action="/users/add")
+    .mb-3
+      label.form-label(for="uname") Username
+      input.form-control(type="text", name="uname", required)
+    .mb-3
+      label.form-label(for="upass") Password
+      input.form-control(type="password", name="upass", required)
+    .mb-3
+      label.form-label(for="utype") User Type
+      input.form-control(type="number", name="utype", required)
+    button.btn.btn-success(type="submit") Save
+    a.btn.btn-secondary(href="/users") Cancel
